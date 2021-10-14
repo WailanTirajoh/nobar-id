@@ -1,0 +1,122 @@
+<template>
+  <nav class="bg-gray-800 fixed w-full z-10 h-16 shadow-lg">
+    <div class="container">
+      <div
+        class="
+          relative
+          flex
+          items-center
+          justify-between
+          h-16
+          w-full
+          overflow-x-auto
+        "
+      >
+        <div
+          class="
+            flex-1 flex
+            items-center
+            justify-center
+            sm:items-stretch
+            sm:justify-start
+          "
+        >
+          <div class="flex-shrink-0 flex items-center"></div>
+          <div class="block sm:ml-6">
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="
+                  bg-gray-900
+                  px-3
+                  py-2
+                  rounded-md
+                  text-sm
+                  font-medium
+                  text-yellow-300
+                  hover:no-underline
+                  whitespace-nowrap
+                "
+              >
+                Nobar ID
+              </a>
+
+              <a
+                href="#"
+                class="
+                  text-gray-300
+                  hover:bg-gray-700
+                  active:bg-gray-600
+                  hover:text-white
+                  px-3
+                  py-2
+                  rounded-md
+                  text-sm
+                  font-medium
+                  hover:no-underline
+                "
+                >WatchList</a
+              >
+
+              <a
+                href="#"
+                class="
+                  text-gray-300
+                  hover:bg-gray-700
+                  hover:text-white
+                  px-3
+                  py-2
+                  rounded-md
+                  text-sm
+                  font-medium
+                  hover:no-underline
+                "
+                >Friends</a
+              >
+              <a
+                href="#"
+                class="
+                  text-gray-300
+                  hover:bg-gray-700
+                  hover:text-white
+                  px-3
+                  py-2
+                  rounded-md
+                  text-sm
+                  font-medium
+                  hover:no-underline
+                "
+                >Group</a
+              >
+            </div>
+          </div>
+        </div>
+        <div
+          class="
+            flex-1 flex
+            items-center
+            justify-center
+            sm:items-stretch
+            sm:justify-end
+          "
+        >
+          <a
+            href="#"
+            class="
+              bg-gray-900
+              text-white
+              px-3
+              py-2
+              rounded-md
+              text-sm
+              font-medium
+            "
+            aria-current="page"
+          >
+            Profile
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</template>
