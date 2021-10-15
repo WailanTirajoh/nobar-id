@@ -10,7 +10,7 @@
         <div
           class="
             transform
-            duration-300
+            duration-500
             absolute
             bottom-0
             right-0
