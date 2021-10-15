@@ -7,8 +7,8 @@
       transform
       hover:-translate-y-1
       hover:scale-110
+      active:duration-75
       active:scale-100
-      active:duration-100
     "
   >
     <slot />

@@ -102,8 +102,8 @@
             sm:justify-end
           "
         >
-          <a
-            href="#"
+          <Link
+            :href="route('front.profile.index')"
             class="
               bg-gray-900
               text-white
@@ -114,8 +114,8 @@
               font-medium
             "
           >
-            Profile
-          </a>
+            My Profile
+          </Link>
         </div>
       </div>
     </div>

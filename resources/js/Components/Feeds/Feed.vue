@@ -42,42 +42,44 @@
         </div>
         <div class="flex">
           <floating>
-            <button>
+            <button @click="openChat(index)">
               <div class="flex">
-                <div class="mx-1 text-xs">{{ feed.totalComments }}</div>
+                <div class="mx-1 text-xs">{{ feed.comments.length }}</div>
                 <message-square-icon size="1.25x"></message-square-icon>
               </div>
             </button>
           </floating>
         </div>
       </div>
-      <div class="bg-gray-900 rounded-xl mt-1 flex">
-        <div class="p-2 text-xs">
-          <span class="font-bold">
-            {{ feed.name }}
-          </span>
-          <p>
-            {{ feed.status }}
-          </p>
+      <div :id="'chat-' + index" class="hidden">
+        <div class="max-h-40 overflow-y-auto">
+          <div
+            class="bg-gray-900 rounded-xl mt-1 flex"
+            v-for="(comment, index) in feed.comments"
+            :key="index"
+          >
+            <div class="p-2 text-xs">
+              <span class="font-bold">
+                {{ comment.name }}
+              </span>
+              <p>
+                {{ comment.status }}
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="bg-gray-900 rounded-xl mt-1 flex">
-        <div class="p-2 text-xs">
-          <span class="font-bold">
-            {{ feed.name }}
-          </span>
-          <p>
-            {{ feed.status }}
-          </p>
-        </div>
-      </div>
-      <div class="mt-2">
-        <div class="relative">
-          <input type="text" class="w-full h-full rounded-xl text-black px-2 py-2" placeholder="Type to reply" />
-          <div class="absolute right-2 bottom-1">
-            <button class="p-1 bg-gray-700 rounded-full">
-              <send-icon size="1.25x"></send-icon>
-            </button>
+        <div class="mt-2">
+          <div class="relative">
+            <input
+              type="text"
+              class="w-full h-full rounded-xl text-black px-2 py-2"
+              placeholder="Type to reply"
+            />
+            <div class="absolute right-2 bottom-1">
+              <button class="p-1 bg-gray-700 rounded-full">
+                <send-icon size="1.25x"></send-icon>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -91,7 +93,7 @@ import {
   ThumbsDownIcon,
   ThumbsUpIcon,
   MessageSquareIcon,
-  SendIcon
+  SendIcon,
 } from "vue-feather-icons";
 import FriendCircle from "@/Components/FriendCircle";
 import Floating from "@/Components/Floating";
@@ -104,10 +106,18 @@ export default {
     MessageSquareIcon,
     FriendCircle,
     Floating,
-    SendIcon
+    SendIcon,
   },
   props: {
     feeds: Array,
+  },
+  methods: {
+    openChat(index) {
+      var chatElement = document.getElementById("chat-" + index);
+      chatElement.classList.contains("hidden")
+        ? chatElement.classList.remove("hidden")
+        : chatElement.classList.add("hidden");
+    },
   },
 };
 </script>

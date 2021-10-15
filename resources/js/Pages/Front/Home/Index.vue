@@ -1,5 +1,5 @@
 <template>
-  <div class="relative group">
+  <div class="relative">
     <div
       class="
         transform
@@ -12,13 +12,18 @@
         translate-x-48
         hover:translate-x-3
         focus-within:translate-x-3
+        group
       "
     >
       <button
         class="bg-gray-500 rounded-full hover:rotate-45 p-2 flex bg-opacity-60"
       >
         <search-icon size="1.5x"></search-icon>
-        <input type="text" class="rounded-r-2xl ml-1 pl-2 text-black w-40" placeholder="Search movies"/>
+        <input
+          type="text"
+          class="rounded-r-2xl ml-1 pl-2 text-black w-40"
+          placeholder="Search movies"
+        />
       </button>
     </div>
     <div class="grid grid-cols-4 gap-4 text-white">
@@ -305,27 +310,39 @@ export default {
           avatar: "/images/friends/face_1.png",
           isOnline: true,
           status: "Sang Chi kills it! big 5 star for marvel movies!",
-          totalComments: 4,
           totalLikes: 15,
           totalDisikes: 3,
+          comments: [
+            {
+              name: "Andre Pros",
+              status: "Biasa aja bro",
+              created_at: "1 hour ago",
+            },
+            {
+              name: "Dwiki GG",
+              status: "Biasa dong buang bang pros",
+              created_at: "59 minutes ago",
+            },
+            {
+              name: "Andre Pros",
+              status: "Biasa aja bro",
+              created_at: "1 hour ago",
+            },
+            {
+              name: "Dwiki GG",
+              status: "Biasa dong buang bang pros",
+              created_at: "59 minutes ago",
+            },
+          ],
         },
         {
           name: "Friend B",
           avatar: "/images/friends/face_2.jpg",
           isOnline: true,
           status: "Dracarysssss",
-          totalComments: 4,
           totalLikes: 13,
           totalDisikes: 2,
-        },
-        {
-          name: "Friend B",
-          avatar: "/images/friends/face_2.jpg",
-          isOnline: true,
-          status: "Dracarysssss",
-          totalComments: 4,
-          totalLikes: 13,
-          totalDisikes: 2,
+          comments: [],
         },
       ],
     };
