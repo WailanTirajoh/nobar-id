@@ -1,17 +1,20 @@
 <template>
   <div>
-    <Navbar></Navbar>
+    <the-navbar></the-navbar>
     <div class="container py-20">
       <slot />
     </div>
+    <the-footer></the-footer>
   </div>
 </template>
 
 <script>
-import Navbar from "@/Shared/Navbar";
+import TheNavbar from "@/Shared/Navbar";
+import TheFooter from "@/Shared/Footer";
 export default {
   components: {
-    Navbar,
+    TheNavbar,
+    TheFooter
   },
 };
 </script>

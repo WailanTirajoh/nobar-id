@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h4 class="text-3xl mb-2 flex justify-end mr-4">{{ title }}</h4>
+    <h4 class="text-3xl mb-2 flex ml-4">{{ title }}</h4>
     <div class="bg-gray-800 rounded-3xl shadow-inner px-8 relative">
       <carousel
         :perPageCustom="[

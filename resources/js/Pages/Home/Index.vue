@@ -1,46 +1,58 @@
 <template>
-  <div class="grid grid-cols-4 gap-4 text-white">
-    <div class="col-span-4 md:col-span-1">
-      <div class="bg-gray-800 rounded-3xl shadow-inner px-4 py-4 mb-3 relative">
-        <div class="absolute top-1 right-5 flex">
-          <div class="bg-gray-700 text-xs px-1 rounded-lg mr-1">Online: 2</div>
-          <!-- <div class="bg-gray-700 text-xs px-1 rounded-lg">Friends</div> -->
-        </div>
-        <carousel
-          :perPageCustom="[
-            [320, 8],
-            [640, 8],
-            [768, 3],
-            [1024, 5],
-            [1280, 6],
-          ]"
-          :paginationEnabled="false"
-        >
-          <slide v-for="(friend, index) in friends" :key="index">
-            <friend-circle
-              :avatar="friend.avatar"
-              :is-online="friend.isOnline"
-            ></friend-circle>
-          </slide>
-        </carousel>
-      </div>
-      <div class="">
-        <h5 class="text-3xl mb-2 flex justify-end mr-2">
-          Feeds
-        </h5>
-        <div class="max-h-96 overflow-y-auto rounded-3xl">
-          <feed :feeds="feeds"></feed>
-        </div>
-      </div>
+  <div class="relative">
+    <div class="text-white fixed top-20 right-5 z-50 group">
+      <button
+        class="bg-gray-500 rounded-full hover:rotate-45 p-2 flex bg-opacity-60"
+      >
+        <input type="text" class="rounded-l-2xl mr-2 pl-2 text-black hidden group-hover:block" />
+        <search-icon size="1.5x"></search-icon>
+      </button>
     </div>
-    <div class="col-span-4 sm:col md:col-span-3 ...">
-      <movie-list
-        v-for="(movie, index) in movies"
-        :key="index"
-        :movies="movie.lists"
-        :title="movie.name"
-        class="mb-3"
-      ></movie-list>
+    <div class="grid grid-cols-4 gap-4 text-white">
+      <div class="col-span-4 md:col-span-1">
+        <div
+          class="bg-gray-800 rounded-3xl shadow-inner px-4 py-4 mb-3 relative"
+        >
+          <div class="absolute top-1 right-5 flex">
+            <div class="bg-gray-700 text-xs px-1 rounded-lg mr-1">
+              Online: 1
+            </div>
+            <!-- <div class="bg-gray-700 text-xs px-1 rounded-lg">Friends</div> -->
+          </div>
+          <carousel
+            :perPageCustom="[
+              [320, 6],
+              [640, 8],
+              [768, 3],
+              [1024, 5],
+              [1280, 6],
+            ]"
+            :paginationEnabled="false"
+          >
+            <slide v-for="(friend, index) in friends" :key="index">
+              <friend-circle
+                :avatar="friend.avatar"
+                :is-online="friend.isOnline"
+              ></friend-circle>
+            </slide>
+          </carousel>
+        </div>
+        <div class="">
+          <h5 class="text-3xl mb-2 flex justify-end mr-2">Feeds</h5>
+          <div class="max-h-96 overflow-y-auto rounded-3xl">
+            <feed :feeds="feeds"></feed>
+          </div>
+        </div>
+      </div>
+      <div class="col-span-4 sm:col md:col-span-3 ...">
+        <movie-list
+          v-for="(movie, index) in movies"
+          :key="index"
+          :movies="movie.lists"
+          :title="movie.name"
+          class="mb-3"
+        ></movie-list>
+      </div>
     </div>
   </div>
 </template>
@@ -51,6 +63,7 @@ import Layout from "@/Shared/Layout";
 import MovieList from "@/Components/Movies/MovieList";
 import FriendCircle from "@/Components/FriendCircle";
 import Feed from "@/Components/Feeds/Feed";
+import { SearchIcon } from "vue-feather-icons";
 
 export default {
   metaInfo: { title: "Movie" },
@@ -61,6 +74,7 @@ export default {
     FriendCircle,
     MovieList,
     Feed,
+    SearchIcon,
   },
   data() {
     return {
