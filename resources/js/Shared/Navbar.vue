@@ -24,8 +24,8 @@
           <div class="flex-shrink-0 flex items-center"></div>
           <div class="block sm:ml-6">
             <div class="flex space-x-4">
-              <a
-                href="#"
+              <Link
+                :href="route('front.home.index')"
                 class="
                   bg-gray-900
                   px-3
@@ -39,10 +39,10 @@
                 "
               >
                 Nobar ID
-              </a>
+              </Link>
 
-              <a
-                href="#"
+              <Link
+                :href="route('front.watchlist.index')"
                 class="
                   text-gray-300
                   hover:bg-gray-700
@@ -55,11 +55,11 @@
                   font-medium
                   hover:no-underline
                 "
-                >WatchList</a
+                :class="isUrl('watchlist') ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium' : ''"
+                >WatchList</Link
               >
-
-              <a
-                href="#"
+              <Link
+                :href="route('front.friend.index')"
                 class="
                   text-gray-300
                   hover:bg-gray-700
@@ -71,10 +71,11 @@
                   font-medium
                   hover:no-underline
                 "
-                >Friends</a
+                :class="isUrl('friend') ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium' : ''"
+                >Friends</Link
               >
-              <a
-                href="#"
+              <Link
+                :href="route('front.group.index')"
                 class="
                   text-gray-300
                   hover:bg-gray-700
@@ -86,7 +87,8 @@
                   font-medium
                   hover:no-underline
                 "
-                >Group</a
+                :class="isUrl('group') ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium' : ''"
+                >Group</Link
               >
             </div>
           </div>
@@ -111,7 +113,6 @@
               text-sm
               font-medium
             "
-            aria-current="page"
           >
             Profile
           </a>
@@ -120,3 +121,17 @@
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  methods: {
+    isUrl(...urls) {
+      let currentUrl = this.$page.url.substr(1);
+      if (urls[0] === "") {
+        return currentUrl === "";
+      }
+      return urls.filter((url) => currentUrl.startsWith(url)).length;
+    },
+  },
+};
+</script>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="text-white">
     <the-navbar></the-navbar>
     <div class="container py-20">
       <slot />

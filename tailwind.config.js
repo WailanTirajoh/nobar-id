@@ -15,6 +15,7 @@ module.exports = {
       scale: ['active'],
       duration: ['active'],
       display: ["group-hover"],
+      translate: ["focus-within"],
     },
   },
   plugins: [],

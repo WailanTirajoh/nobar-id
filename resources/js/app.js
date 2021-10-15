@@ -4,14 +4,21 @@ import PortalVue from 'portal-vue'
 import { InertiaProgress } from '@inertiajs/progress'
 import { createInertiaApp } from '@inertiajs/inertia-vue'
 import VueCarousel from 'vue-carousel';
+import { Link } from '@inertiajs/inertia-vue'
 
 Vue.config.productionTip = false
-// Vue.mixin({ methods: { route: window.route } })
+Vue.mixin({ methods: { route: window.route } })
 Vue.use(PortalVue)
 Vue.use(VueMeta)
 Vue.use(VueCarousel);
+Vue.component('Link', Link);
 
-InertiaProgress.init()
+InertiaProgress.init({
+  delay: 250,
+  color: '#29d',
+  includeCSS: true,
+  showSpinner: true,
+})
 
 createInertiaApp({
     resolve: name => require(`./Pages/${name}`),

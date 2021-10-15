@@ -1,25 +1,24 @@
 <template>
-  <div class="relative">
-    <div class="text-white fixed top-20 right-5 z-50 group">
+  <div class="relative group">
+    <div
+      class="
+        transform
+        duration-500
+        text-white
+        fixed
+        top-20
+        right-6
+        z-50
+        translate-x-48
+        hover:translate-x-3
+        focus-within:translate-x-3
+      "
+    >
       <button
         class="bg-gray-500 rounded-full hover:rotate-45 p-2 flex bg-opacity-60"
       >
-        <input
-          type="text"
-          class="
-            transform
-            linear
-            duration-500
-            ease-in-out
-            rounded-l-2xl
-            mr-2
-            pl-2
-            text-black
-            hidden
-            group-hover:block
-          "
-        />
         <search-icon size="1.5x"></search-icon>
+        <input type="text" class="rounded-r-2xl ml-1 pl-2 text-black w-40" placeholder="Search movies"/>
       </button>
     </div>
     <div class="grid grid-cols-4 gap-4 text-white">
@@ -72,8 +71,8 @@
 </template>
 
 <script>
-import { Carousel, Slide } from "vue-carousel";
 import Layout from "@/Shared/Layout";
+import { Carousel, Slide } from "vue-carousel";
 import MovieList from "@/Components/Movies/MovieList";
 import FriendCircle from "@/Components/FriendCircle";
 import Feed from "@/Components/Feeds/Feed";
