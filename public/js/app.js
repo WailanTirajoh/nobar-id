@@ -3911,6 +3911,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   methods: {
     isUrl: function isUrl() {
@@ -27011,7 +27022,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "nav",
-    { staticClass: "bg-gray-800 fixed w-full z-10 h-16 shadow-lg" },
+    {
+      staticClass:
+        "bg-gray-800 fixed w-full z-10 h-16 shadow-lg whitespace-nowrap"
+    },
     [
       _c("div", { staticClass: "container" }, [
         _c(
@@ -27039,7 +27053,7 @@ var render = function() {
                         "Link",
                         {
                           staticClass:
-                            "\n                bg-gray-900\n                px-3\n                py-2\n                rounded-md\n                text-sm\n                font-medium\n                text-yellow-300\n                hover:no-underline\n                whitespace-nowrap\n              ",
+                            "\n                bg-gray-900\n                px-3\n                py-2\n                rounded-md\n                text-sm\n                font-medium\n                text-yellow-300\n                hover:no-underline\n              ",
                           attrs: { href: _vm.route("front.home.index") }
                         },
                         [_vm._v("\n              Nobar ID\n            ")]

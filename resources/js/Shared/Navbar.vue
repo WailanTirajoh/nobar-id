@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-gray-800 fixed w-full z-10 h-16 shadow-lg">
+  <nav class="bg-gray-800 fixed w-full z-10 h-16 shadow-lg whitespace-nowrap">
     <div class="container">
       <div
         class="
@@ -35,7 +35,6 @@
                   font-medium
                   text-yellow-300
                   hover:no-underline
-                  whitespace-nowrap
                 "
               >
                 Nobar ID
@@ -55,7 +54,11 @@
                   font-medium
                   hover:no-underline
                 "
-                :class="isUrl('watchlist') ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium' : ''"
+                :class="
+                  isUrl('watchlist')
+                    ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium'
+                    : ''
+                "
                 >WatchList</Link
               >
               <Link
@@ -71,7 +74,11 @@
                   font-medium
                   hover:no-underline
                 "
-                :class="isUrl('friend') ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium' : ''"
+                :class="
+                  isUrl('friend')
+                    ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium'
+                    : ''
+                "
                 >Friends</Link
               >
               <Link
@@ -87,7 +94,11 @@
                   font-medium
                   hover:no-underline
                 "
-                :class="isUrl('group') ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium' : ''"
+                :class="
+                  isUrl('group')
+                    ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium'
+                    : ''
+                "
                 >Group</Link
               >
             </div>
