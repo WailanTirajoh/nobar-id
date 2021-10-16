@@ -16,7 +16,7 @@
       "
     >
       <button
-        class="bg-gray-500 rounded-full hover:rotate-45 p-2 flex bg-opacity-60"
+        class="bg-gray-600 rounded-full hover:rotate-45 p-2 flex bg-opacity-60"
       >
         <search-icon size="1.5x"></search-icon>
         <input

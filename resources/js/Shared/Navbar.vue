@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-gray-800 fixed w-full z-10 h-16 shadow-lg whitespace-nowrap">
+  <nav class="bg-gray-800 fixed w-full z-10 h-16 shadow whitespace-nowrap">
     <div class="container">
       <div
         class="
@@ -114,7 +114,7 @@
           "
         >
           <Link
-            :href="route('front.profile.index')"
+            :href="route('login')"
             class="
               bg-gray-900
               text-white
@@ -125,7 +125,7 @@
               font-medium
             "
           >
-            My Profile
+          Login
           </Link>
         </div>
       </div>
