@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <div class="fixed bottom-20 right-10 z-10">
+    <div class="fixed bottom-16 right-3 z-10">
       <floating>
         <Link
           :href="route('front.video.index')"
@@ -45,7 +45,7 @@
         />
       </button>
     </div>
-    <div class="grid grid-cols-4 gap-4 text-white">
+    <div class="grid grid-cols-4 gap-4 text-white ">
       <div class="col-span-4 md:col-span-1">
         <div
           class="bg-gray-800 rounded-3xl shadow-inner px-4 py-4 mb-3 relative"
@@ -81,7 +81,7 @@
           </div>
         </div>
       </div>
-      <div class="col-span-4 sm:col md:col-span-3 ...">
+      <div class="col-span-4 sm:col md:col-span-3">
         <movie-list
           v-for="(movie, index) in movies"
           :key="index"
@@ -334,6 +334,7 @@ export default {
           status: "Sang Chi kills it! big 5 star for marvel movies!",
           totalLikes: 15,
           totalDisikes: 3,
+          created_at: "1 hour ago",
           comments: [
             {
               name: "Andre Pros",
@@ -364,6 +365,7 @@ export default {
           status: "Dracarysssss",
           totalLikes: 13,
           totalDisikes: 2,
+          created_at: "3 hour ago",
           comments: [],
         },
       ],

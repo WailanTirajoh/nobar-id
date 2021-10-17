@@ -13,12 +13,17 @@
         ></friend-circle>
         <div class="ml-3">
           <h5 class="text-sm align-top font-semibold">
-            {{ feed.name }}
+            <div>
+              {{ feed.name }}
+            </div>
+            <div class="font-light text-xs">{{ feed.created_at }}</div>
           </h5>
-          <p class="leading-normal text-xs">
-            {{ feed.status }}
-          </p>
         </div>
+      </div>
+      <div class="mt-1">
+        <p class="leading-normal text-xs">
+          {{ feed.status }}
+        </p>
       </div>
       <hr class="my-1" />
       <div class="flex justify-between mt-2 mb-2">
@@ -42,7 +47,7 @@
         </div>
         <div class="flex">
           <floating>
-            <button @click="openChat(index)">
+            <button @click="openComments(index)">
               <div class="flex">
                 <div class="mx-1 text-xs">{{ feed.comments.length }}</div>
                 <message-square-icon size="1.25x"></message-square-icon>
@@ -51,7 +56,7 @@
           </floating>
         </div>
       </div>
-      <div :id="'chat-' + index" class="hidden">
+      <div :id="'comment-' + index" class="hidden">
         <div class="max-h-40 overflow-y-auto">
           <div
             class="bg-gray-900 rounded-xl mt-1 flex"
@@ -61,10 +66,10 @@
             <div class="p-2 text-xs w-full">
               <div class="flex justify-between w-full">
                 <div class="font-bold">
-                {{ comment.name }}
+                  {{ comment.name }}
                 </div>
                 <div class="font-light">
-                {{ comment.created_at }}
+                  {{ comment.created_at }}
                 </div>
               </div>
               <p>
@@ -117,11 +122,11 @@ export default {
     feeds: Array,
   },
   methods: {
-    openChat(index) {
-      var chatElement = document.getElementById("chat-" + index);
-      chatElement.classList.contains("hidden")
-        ? chatElement.classList.remove("hidden")
-        : chatElement.classList.add("hidden");
+    openComments(index) {
+      var commentElement = document.getElementById("comment-" + index);
+      commentElement.classList.contains("hidden")
+        ? commentElement.classList.remove("hidden")
+        : commentElement.classList.add("hidden");
     },
   },
 };

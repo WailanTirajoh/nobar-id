@@ -167,7 +167,7 @@
           </floating>
         </Link>
         <Link
-          :href="route('front.watchlist.index')"
+          :href="route('front.notification.index')"
           class="
             w-full
             hover:text-white hover:no-underline
@@ -179,7 +179,7 @@
           "
         >
           <floating>
-            <bell-icon size="1.5x" class="mb-1 flex justify-center w-full"></bell-icon>
+            <bell-icon class="mb-1 flex justify-center w-full"></bell-icon>
             <span class="tab tab-whishlist block text-xs"> Notification </span>
           </floating>
         </Link>
@@ -196,7 +196,7 @@
           "
         >
           <floating>
-            <user-icon size="1.5x" class="mb-1 flex justify-center w-full"></user-icon>
+            <user-icon class="mb-1 flex justify-center w-full"></user-icon>
             <span class="tab tab-account block text-xs">Account</span>
           </floating>
         </Link>

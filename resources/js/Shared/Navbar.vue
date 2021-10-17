@@ -131,29 +131,6 @@
             "
             >Movie Management</Link
           >
-          <Link
-            :href="route('login')"
-            class="
-              text-gray-300
-              hover:bg-gray-700
-              active:bg-gray-600
-              hover:text-white
-              px-3
-              py-2
-              rounded-md
-              text-sm
-              font-medium
-              hover:no-underline
-              mr-2
-            "
-            :class="
-              isUrl('login')
-                ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium'
-                : ''
-            "
-          >
-            Login
-          </Link>
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@ use App\Http\Controllers\Front\ExploreController;
 use App\Http\Controllers\Front\FriendController;
 use App\Http\Controllers\Front\GroupController;
 use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Front\NotificationController;
 use App\Http\Controllers\Front\VideoController;
 use App\Http\Controllers\Front\WatchlistController;
 use App\Http\Controllers\MovieController;
@@ -24,15 +25,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['as' => 'front.'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home.index');
-    Route::get('/watchlist', [WatchlistController::class, 'index'])->name('watchlist.index');
-    Route::get('/friend', [FriendController::class, 'index'])->name('friend.index');
-    Route::get('/group', [GroupController::class, 'index'])->name('group.index');
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::get('/explore', [ExploreController::class, 'index'])->name('explore.index');
-    Route::get('/video', [VideoController::class, 'index'])->name('video.index');
+
+    Route::group(['middleware' => ['auth']], function () {
+        Route::get('/video', [VideoController::class, 'index'])->name('video.index');
+        Route::get('/group', [GroupController::class, 'index'])->name('group.index');
+        Route::get('/friend', [FriendController::class, 'index'])->name('friend.index');
+        Route::get('/watchlist', [WatchlistController::class, 'index'])->name('watchlist.index');
+        Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+        Route::get('/notification', [NotificationController::class, 'index'])->name('notification.index');
+    });
 });
 
-Route::group(['as' => 'back.'], function () {
+Route::group(['as' => 'back.', 'middleware' => ['auth']], function () {
     Route::resource('user', UserController::class);
     Route::resource('movie', MovieController::class);
 });
