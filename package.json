@@ -36,6 +36,7 @@
         "toastr": "^2.1.4",
         "vue-carousel": "^0.18.0",
         "vue-feather-icons": "^5.1.0",
-        "vue-meta": "^2.4.0"
+        "vue-meta": "^2.4.0",
+        "vue-tailwind": "^2.5.0"
     }
 }

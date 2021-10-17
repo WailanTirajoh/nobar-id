@@ -23,7 +23,7 @@
               name="email"
               id="email"
               label="Email"
-              placeholder="Type your email address"
+              placeholder="example@app.com"
             />
           </div>
           <div class="col-span-full mt-2">
@@ -34,7 +34,7 @@
               name="password"
               id="password"
               label="Password"
-              placeholder="Type your password"
+              placeholder="**********"
             />
           </div>
           <div class="col-span-full mt-2 flex justify-between">

@@ -17,8 +17,7 @@
             flex-1 flex
             items-center
             justify-center
-            sm:items-stretch
-            sm:justify-start
+            sm:items-stretch sm:justify-start
           "
         >
           <div class="flex-shrink-0 flex items-center"></div>
@@ -39,34 +38,11 @@
               >
                 Nobar ID
               </Link>
-
-              <Link
-                :href="route('front.watchlist.index')"
-                class="
-                  text-gray-300
-                  hover:bg-gray-700
-                  active:bg-gray-600
-                  hover:text-white
-                  px-3
-                  py-2
-                  rounded-md
-                  text-sm
-                  font-medium
-                  hover:no-underline
-                "
-                :class="
-                  isUrl('watchlist')
-                    ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium'
-                    : ''
-                "
-                >WatchList</Link
-              >
               <Link
                 :href="route('front.friend.index')"
                 class="
                   text-gray-300
-                  hover:bg-gray-700
-                  hover:text-white
+                  hover:bg-gray-700 hover:text-white
                   px-3
                   py-2
                   rounded-md
@@ -85,8 +61,7 @@
                 :href="route('front.group.index')"
                 class="
                   text-gray-300
-                  hover:bg-gray-700
-                  hover:text-white
+                  hover:bg-gray-700 hover:text-white
                   px-3
                   py-2
                   rounded-md
@@ -109,23 +84,75 @@
             flex-1 flex
             items-center
             justify-center
-            sm:items-stretch
-            sm:justify-end
+            sm:items-stretch sm:justify-end
           "
         >
           <Link
-            :href="route('login')"
+            :href="route('back.user.index')"
             class="
-              bg-gray-900
-              text-white
+              text-gray-300
+              hover:bg-gray-700
+              active:bg-gray-600
+              hover:text-white
               px-3
               py-2
               rounded-md
               text-sm
               font-medium
+              hover:no-underline
+              mr-2
+            "
+            :class="
+              isUrl('user')
+                ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium'
+                : ''
+            "
+            >User Management</Link
+          >
+          <Link
+            :href="route('back.movie.index')"
+            class="
+              text-gray-300
+              hover:bg-gray-700
+              active:bg-gray-600
+              hover:text-white
+              px-3
+              py-2
+              rounded-md
+              text-sm
+              font-medium
+              hover:no-underline
+              mr-2
+            "
+            :class="
+              isUrl('movie')
+                ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium'
+                : ''
+            "
+            >Movie Management</Link
+          >
+          <Link
+            :href="route('login')"
+            class="
+              text-gray-300
+              hover:bg-gray-700
+              active:bg-gray-600
+              hover:text-white
+              px-3
+              py-2
+              rounded-md
+              text-sm
+              font-medium
+              hover:no-underline
+              mr-2
+            "
+            :class="
+              isUrl('login')
+                ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium'
+                : ''
             "
           >
-          Login
+            Login
           </Link>
         </div>
       </div>

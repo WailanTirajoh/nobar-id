@@ -28,6 +28,17 @@
           </div>
           <div class="col-span-full mt-2">
             <f-input
+              v-model="form.name"
+              :error="form.errors.name"
+              type="text"
+              name="name"
+              id="name"
+              label="name"
+              placeholder="********"
+            />
+          </div>
+          <div class="col-span-full mt-2">
+            <f-input
               v-model="form.password"
               :error="form.errors.password"
               type="password"
@@ -41,7 +52,7 @@
             <f-input
               v-model="form.password_confirmation"
               :error="form.errors.password_confirmation"
-              type="password_confirmation"
+              type="password"
               name="password_confirmation"
               id="password_confirmation"
               label="Password Confirmation"
@@ -90,7 +101,7 @@ export default {
   data() {
     return {
       form: this.$inertia.form({
-        username: null,
+        name: null,
         email: null,
         password: null,
         password_confirmation: null,

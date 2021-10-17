@@ -18,5 +18,6 @@ module.exports = {
       translate: ["focus-within"],
     },
   },
-  plugins: [],
+  plugins: [
+  ],
 }

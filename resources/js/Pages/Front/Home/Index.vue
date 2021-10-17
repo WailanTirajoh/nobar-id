@@ -1,5 +1,24 @@
 <template>
   <div class="relative">
+    <div class="fixed bottom-20 right-10 z-10">
+      <floating>
+        <Link
+          :href="route('front.video.index')"
+          class="
+            bg-gray-700
+            px-2
+            py-1
+            rounded-2xl
+            flex
+            shadow-xl
+            hover:text-white hover:no-underline
+          "
+        >
+          <plus-icon size="1.5x"></plus-icon>
+          <span class="ml-1"> Upload Video </span>
+        </Link>
+      </floating>
+    </div>
     <div
       class="
         transform
@@ -78,10 +97,11 @@
 <script>
 import Layout from "@/Shared/Layout";
 import { Carousel, Slide } from "vue-carousel";
+import { SearchIcon, PlusIcon } from "vue-feather-icons";
 import MovieList from "@/Components/Movies/MovieList";
 import FriendCircle from "@/Components/FriendCircle";
 import Feed from "@/Components/Feeds/Feed";
-import { SearchIcon } from "vue-feather-icons";
+import Floating from "@/Components/Floating";
 
 export default {
   metaInfo: { title: "Movie" },
@@ -93,6 +113,8 @@ export default {
     MovieList,
     Feed,
     SearchIcon,
+    PlusIcon,
+    Floating,
   },
   data() {
     return {
