@@ -16,6 +16,7 @@ mix.js('resources/js/app.js', 'public/js')
     .alias({ '@': 'resources/js' })
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/watch.scss', 'public/css')
+    .sass('resources/sass/toastr.scss', 'public/css')
     .postCss("resources/css/app.css", "public/css", [
         require("tailwindcss"),
     ])

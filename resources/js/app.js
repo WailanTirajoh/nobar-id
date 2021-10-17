@@ -15,7 +15,7 @@ Vue.component('Link', Link);
 
 InertiaProgress.init({
   delay: 250,
-  color: '#29d',
+  color: '#cbd5e0',
   includeCSS: true,
   showSpinner: true,
 })
@@ -31,3 +31,5 @@ createInertiaApp({
         }).$mount(el)
     },
 })
+
+require('./bootstrap');

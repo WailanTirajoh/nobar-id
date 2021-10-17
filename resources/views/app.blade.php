@@ -8,17 +8,19 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <script src="{{ mix('js/app.js') }}" defer></script>
 
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ mix('css/watch.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/toastr.css') }}" rel="stylesheet">
     @routes
 </head>
 
 <body>
     @inertia
+    <script src="{{ mix('js/app.js') }}"></script>
+    @include('include.toastr')
 </body>
 
 </html>
