@@ -58,10 +58,15 @@
             v-for="(comment, index) in feed.comments"
             :key="index"
           >
-            <div class="p-2 text-xs">
-              <span class="font-bold">
+            <div class="p-2 text-xs w-full">
+              <div class="flex justify-between w-full">
+                <div class="font-bold">
                 {{ comment.name }}
-              </span>
+                </div>
+                <div class="font-light">
+                {{ comment.created_at }}
+                </div>
+              </div>
               <p>
                 {{ comment.status }}
               </p>

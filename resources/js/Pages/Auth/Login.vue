@@ -1,7 +1,10 @@
 <template>
-  <div class="flex align-middle justify-center w-full">
+  <div class="grid grid-cols-12">
+    <div class="sm:col-span-4"></div>
     <div
       class="
+        col-span-12
+        sm:col-span-4
         bg-gray-800
         border-gray-800 border-2
         rounded-2xl
@@ -11,83 +14,74 @@
       "
     >
       <form @submit.prevent="login">
-        <div class="grid grid-cols-12 gap-x-8 gap-y-3">
-          <div class="col-span-12">
-            <label for="email" class="block text-sm font-medium">Email</label>
-            <input
+        <div class="grid grid-cols-12">
+          <div class="col-span-full">
+            <f-input
               v-model="form.email"
-              type="text"
+              :error="form.errors.email"
+              type="email"
               name="email"
               id="email"
-              class="
-                focus:ring-indigo-500
-                focus:border-indigo-500
-                block
-                w-full
-                shadow-sm
-                sm:text-sm
-                border-gray-300
-                rounded-md
-                text-black
-                p-1
-                px-2
-              "
+              label="Email"
+              placeholder="Type your email address"
             />
           </div>
-          <div class="col-span-12">
-            <label for="password" class="block text-sm font-medium"
-              >Password</label
-            >
-            <input
+          <div class="col-span-full mt-2">
+            <f-input
               v-model="form.password"
+              :error="form.errors.password"
               type="password"
               name="password"
               id="password"
-              class="
-                focus:ring-indigo-500
-                focus:border-indigo-500
-                block
-                w-full
-                shadow-sm
-                sm:text-sm
-                border-gray-300
-                rounded-md
-                text-black
-                p-1
-              "
+              label="Password"
+              placeholder="Type your password"
             />
           </div>
-          <div class="col-span-12 flex justify-between">
+          <div class="col-span-full mt-2 flex justify-between">
             <Link
               :href="route('register')"
               class="p-2 rounded-xl px-4 font-semibold"
             >
               Register
             </Link>
-            <form-button
+            <f-button
               type="submit"
-              class="p-2 rounded-xl bg-gray-900 font-semibold px-4 flex align-top"
+              class="
+                p-2
+                rounded-xl
+                bg-gray-900
+                font-semibold
+                px-4
+                flex
+                align-top
+              "
               :loading="form.processing"
             >
               Login
-            </form-button>
+            </f-button>
           </div>
         </div>
       </form>
     </div>
+    <div class="sm:col-span-4"></div>
   </div>
 </template>
 
 <script>
 import Layout from "@/Shared/Layout";
-import FormButton from "@/Components/Form/FormButton";
+import FButton from "@/Components/Form/FButton";
+import FInput from "@/Components/Form/FInput";
 
 export default {
   metaInfo: { title: "Login" },
   components: {
-    FormButton,
+    FButton,
+    FInput,
   },
   layout: Layout,
+  props: {
+    errors: Object,
+  },
   data() {
     return {
       form: this.$inertia.form({
