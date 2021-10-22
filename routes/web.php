@@ -7,9 +7,12 @@ use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\NotificationController;
 use App\Http\Controllers\Front\VideoController;
 use App\Http\Controllers\Front\WatchlistController;
-use App\Http\Controllers\MovieController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Front\ProfileController;
+
+use App\Http\Controllers\Back\MovieController;
+use App\Http\Controllers\Back\PermissionController;
+use App\Http\Controllers\Back\RoleController;
+use App\Http\Controllers\Back\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,9 +40,11 @@ Route::group(['as' => 'front.'], function () {
     });
 });
 
-Route::group(['as' => 'back.', 'middleware' => ['auth']], function () {
+Route::group(['as' => 'back.', 'middleware' => ['auth'], 'prefix' => 'back'], function () {
     Route::resource('user', UserController::class);
     Route::resource('movie', MovieController::class);
+    Route::resource('role', RoleController::class);
+    Route::resource('permission', PermissionController::class);
 });
 
 

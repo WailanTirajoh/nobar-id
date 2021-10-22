@@ -5,7 +5,7 @@
     <div class="container py-20">
       <slot />
     </div>
-    <the-footer></the-footer>
+    <!-- <the-footer></the-footer> -->
     <the-botbar></the-botbar>
   </div>
 </template>

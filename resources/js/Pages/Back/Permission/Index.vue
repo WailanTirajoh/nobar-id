@@ -1,7 +1,7 @@
 <template>
   <div>
     <h5 class="text-xl font-bold flex justify-end mr-4 mb-2">
-      Movie Management
+      Permission Management
     </h5>
     <div class="flex flex-col">
       <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

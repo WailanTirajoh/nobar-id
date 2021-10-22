@@ -1,8 +1,17 @@
 <template>
-  <div>
-    <h5 class="text-xl font-bold flex justify-end mr-4 mb-2">
-      User Management
-    </h5>
+  <layout>
+    <div class="flex justify-between">
+      <Link
+        :href="route('back.user.create')"
+        class="hover:no-underline hover:text-white font-medium"
+      >
+        <div class="bg-gray-700 p-2 shadow-md rounded-lg flex mb-2">
+          <PlusIcon size="1.5x" />
+          Create
+        </div>
+      </Link>
+      <h5 class="text-xl font-bold flex justify-end mr-4 mb-2"></h5>
+    </div>
     <div class="flex flex-col">
       <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -10,7 +19,7 @@
             class="
               shadow
               overflow-hidden
-              border-b border-gray-900
+              border-b border-gray-700
               sm:rounded-lg
             "
           >
@@ -57,29 +66,27 @@
                       tracking-wider
                     "
                   >
-                    Status
+                    Role
                   </th>
                   <th
                     scope="col"
                     class="
                       px-6
                       py-3
-                      text-left text-xs
+                      text-xs
                       font-medium
                       text-gray-200
                       uppercase
                       tracking-wider
+                      text-right
                     "
                   >
-                    Role
-                  </th>
-                  <th scope="col" class="relative px-6 py-3">
-                    <span class="sr-only">Edit</span>
+                    Action
                   </th>
                 </tr>
               </thead>
               <tbody class="bg-gray-700 divide-y divide-gray-900">
-                <tr>
+                <tr v-for="user in users.data" :key="user.id">
                   <td class="px-6 py-4 whitespace-nowrap">
                     <div class="flex items-center">
                       <div class="flex-shrink-0 h-10 w-10">
@@ -91,19 +98,17 @@
                       </div>
                       <div class="ml-4">
                         <div class="text-sm font-medium text-gray-100">
-                          Jane Cooper
+                          <Link
+                            :href="route('back.user.show', { user: user.id })"
+                          >
+                            {{ user.name }}
+                          </Link>
                         </div>
                         <div class="text-sm text-gray-200">
-                          jane.cooper@example.com
+                          {{ user.email }}
                         </div>
                       </div>
                     </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-100">
-                      Regional Paradigm Technician
-                    </div>
-                    <div class="text-sm text-gray-200">Optimization</div>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap">
                     <span
@@ -122,7 +127,9 @@
                     </span>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-200">
-                    Admin
+                    <div class="" v-for="role in user.roles" :key="role.id">
+                      {{ role.name }}
+                    </div>
                   </td>
                   <td
                     class="
@@ -133,8 +140,10 @@
                       font-medium
                     "
                   >
-                    <a href="#" class="text-indigo-600 hover:text-indigo-900"
-                      >Edit</a
+                    <Link
+                      :href="route('back.user.edit', { user: user.id })"
+                      class=""
+                      >Edit</Link
                     >
                   </td>
                 </tr>
@@ -146,13 +155,24 @@
         </div>
       </div>
     </div>
-  </div>
+  </layout>
 </template>
 
 <script>
-import Layout from "@/Shared/Layout";
+import { PlusIcon } from "vue-feather-icons";
+import Floating from "@/Components/Floating";
+import Layout from "@/Shared/Admin/Layout";
+
 export default {
   metaInfo: { title: "User Management" },
-  layout: Layout,
+  components: {
+    PlusIcon,
+    Floating,
+    Layout,
+  },
+  props: {
+    filters: Object,
+    users: Object,
+  },
 };
 </script>

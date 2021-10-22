@@ -40,12 +40,12 @@
         <search-icon size="1.5x"></search-icon>
         <input
           type="text"
-          class="rounded-r-2xl ml-1 pl-2 text-black w-40"
+          class="rounded-r-2xl ml-1 pl-2 text-black w-40 text-sm"
           placeholder="Search movies"
         />
       </button>
     </div>
-    <div class="grid grid-cols-4 gap-4 text-white ">
+    <div class="grid grid-cols-4 gap-4 text-white">
       <div class="col-span-4 md:col-span-1">
         <div
           class="bg-gray-800 rounded-3xl shadow-inner px-4 py-4 mb-3 relative"
@@ -76,6 +76,13 @@
         </div>
         <div class="">
           <h5 class="text-3xl mb-2 flex justify-end mr-2">Feeds</h5>
+          <div class="p-3 bg-gray-800 rounded-3xl mb-2">
+            <input type="text" class="p-2 text-black px-2 rounded-xl w-full" placeholder="Share your movie experience here!" />
+            <div class="flex justify-end mt-2 gap-x-3">
+              <button class="px-3 py-1 rounded-2xl bg-gray-700">Tag Friend</button>
+              <button class="px-3 py-1 rounded-2xl bg-gray-700">Post</button>
+            </div>
+          </div>
           <div class="max-h-96 overflow-y-auto rounded-3xl">
             <feed :feeds="feeds"></feed>
           </div>

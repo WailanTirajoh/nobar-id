@@ -31,9 +31,12 @@
                   py-2
                   rounded-md
                   text-sm
-                  font-medium
+                  font-bold
                   text-yellow-300
                   hover:no-underline
+                  transition
+                  duration-300
+                  ease-in-out
                 "
               >
                 Nobar ID
@@ -42,13 +45,16 @@
                 :href="route('front.friend.index')"
                 class="
                   text-gray-300
-                  hover:bg-gray-700 hover:text-white
+                  hover:bg-gray-900 hover:text-white
                   px-3
                   py-2
                   rounded-md
                   text-sm
                   font-medium
                   hover:no-underline
+                  transition
+                  duration-300
+                  ease-in-out
                 "
                 :class="
                   isUrl('friend')
@@ -61,13 +67,16 @@
                 :href="route('front.group.index')"
                 class="
                   text-gray-300
-                  hover:bg-gray-700 hover:text-white
+                  hover:bg-gray-900 hover:text-white
                   px-3
                   py-2
                   rounded-md
                   text-sm
                   font-medium
                   hover:no-underline
+                  transition
+                  duration-300
+                  ease-in-out
                 "
                 :class="
                   isUrl('group')
@@ -86,12 +95,15 @@
             justify-center
             sm:items-stretch sm:justify-end
           "
+          v-if="$page.props.auth.user"
         >
           <Link
+            v-if="hasAnyPermission(['user-access'])"
             :href="route('back.user.index')"
+            :class="isUrl('back') ? 'bg-gray-900 ' : ''"
             class="
               text-gray-300
-              hover:bg-gray-700
+              hover:bg-gray-900
               active:bg-gray-600
               hover:text-white
               px-3
@@ -102,51 +114,10 @@
               hover:no-underline
               mr-2
             "
-            :class="
-              isUrl('user')
-                ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium'
-                : ''
-            "
-            >User Management</Link
-          >
-          <Link
-            :href="route('back.movie.index')"
-            class="
-              text-gray-300
-              hover:bg-gray-700
-              active:bg-gray-600
-              hover:text-white
-              px-3
-              py-2
-              rounded-md
-              text-sm
-              font-medium
-              hover:no-underline
-              mr-2
-            "
-            :class="
-              isUrl('movie')
-                ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium'
-                : ''
-            "
-            >Movie Management</Link
+            >Admin Management</Link
           >
         </div>
       </div>
     </div>
   </nav>
 </template>
-
-<script>
-export default {
-  methods: {
-    isUrl(...urls) {
-      let currentUrl = this.$page.url.substr(1);
-      if (urls[0] === "") {
-        return currentUrl === "";
-      }
-      return urls.filter((url) => currentUrl.startsWith(url)).length;
-    },
-  },
-};
-</script>

@@ -1,6 +1,8 @@
 <template>
   <div>
-    <label v-if="label" class="block text-sm font-medium" :for="id">{{ label }}</label>
+    <label v-if="label" class="block text-sm font-medium" :for="id">{{
+      label
+    }}</label>
     <input
       :id="id"
       ref="input"
@@ -10,16 +12,18 @@
         w-full
         shadow-sm
         sm:text-sm
-        border-gray-300
         rounded-md
         text-black
+        bg-gray-200
         p-2
       "
       :type="type"
       :value="value"
       @input="$emit('input', $event.target.value)"
     />
-    <div v-if="error" class="mt-2 text-xs flex justify-end">{{ error }}</div>
+    <div v-if="error" class="mt-1 text-xs flex justify-start text-gray-300">
+      {{ error }}
+    </div>
   </div>
 </template>
 
@@ -40,17 +44,6 @@ export default {
     value: String,
     label: String,
     error: String,
-  },
-  methods: {
-    focus() {
-      this.$refs.input.focus();
-    },
-    select() {
-      this.$refs.input.select();
-    },
-    setSelectionRange(start, end) {
-      this.$refs.input.setSelectionRange(start, end);
-    },
   },
 };
 </script>

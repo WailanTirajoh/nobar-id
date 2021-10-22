@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Back;
 
+use App\Http\Controllers\Controller;
+use App\Models\Permission;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class UserController extends Controller
+class PermissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Back/User/Index');
+        return Inertia::render('Back/Permission/Index');
     }
 
     /**
@@ -24,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Back/User/Create');
+        return Inertia::render('Back/Permission/Create');
     }
 
     /**
@@ -35,51 +37,51 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect()->route('backend.user.index')->with('success', 'User stored!');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Permission  $permission
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Permission $permission)
     {
-        return Inertia::render('Back/User/Show');
+        return Inertia::render('Back/Permission/Show');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Permission  $permission
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Permission $permission)
     {
-        return Inertia::render('Back/User/Edit');
+        return Inertia::render('Back/Permission/Edit');
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Permission  $permission
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Permission $permission)
     {
-        return redirect()->route('backend.user.index')->with('success', 'User updated!');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Permission  $permission
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Permission $permission)
     {
-        return redirect()->route('backend.user.index')->with('success', 'User deleted!');
+        //
     }
 }

@@ -53,7 +53,33 @@ const settings = {
 Vue.use(VueTailwind, settings)
 
 Vue.config.productionTip = false
-Vue.mixin({ methods: { route: window.route } })
+Vue.mixin({
+  methods: {
+    route: window.route,
+    hasAnyPermission: function (permissions) {
+      var hasPermission = false;
+      if (this.$page.props.auth.user) {
+        var allPermissions = this.$page.props.auth.user.can;
+
+        permissions.forEach(function (item) {
+          if (allPermissions[item]) hasPermission = true;
+        });
+        var roles = (this.$page.props.auth.user.role);
+        roles.forEach(function (role) {
+          if (role.name == 'Super') hasPermission = true;
+        });
+      }
+      return hasPermission;
+    },
+    isUrl(...urls) {
+      let currentUrl = this.$page.url.substr(1);
+      if (urls[0] === "") {
+        return currentUrl === "";
+      }
+      return urls.filter((url) => currentUrl.startsWith(url)).length;
+    },
+  }
+})
 Vue.use(PortalVue)
 Vue.use(VueMeta)
 Vue.use(VueCarousel);
